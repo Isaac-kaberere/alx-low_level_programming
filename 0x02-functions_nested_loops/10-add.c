@@ -1,14 +1,27 @@
-#include "main.h"
+#include <stdio.h>
 
-/**
- * add - Check Main
- * @a: An integer a
- * @b: An integer b
- * Description: Function that adds two integers and returns the result
- * Return: Result to add a and b
- */
-int add(int a, int b)
-{
-	return (a + b);
+int add(int, int);
+
+int main(){
+    int a,b;
+    int result;
+
+    printf("Enter a number: ");
+    scanf("%d%d", &a, &b);
+
+    result = add(a, b);
+    printf("THe sum of %d and %d is: %d\n", a, b, result);
+
+    return 0;
+
+
+
 }
+int add(int a, int b){
+    int sum;
 
+    sum = a+b;
+
+    return sum;
+
+}
