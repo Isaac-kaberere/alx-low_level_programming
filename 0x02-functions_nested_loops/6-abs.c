@@ -9,9 +9,14 @@ int _abs(int num) {
 }
 
 int main() {
-    int nur = -4;
-    int absValue = _abs(nur);
-    printf("The absolute value of %d is %d\n", nur, absValue);
+    int a;
+
+    printf("Enter a number : ");
+    scanf("%d", &a);
+
+    int result = _abs(a);
+
+    printf("The absolute value of %d is %d\n", a, result);
     return 0;
 }
 
