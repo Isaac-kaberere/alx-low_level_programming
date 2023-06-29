@@ -1,24 +1,22 @@
-#include "main.h"
+#include <stdio.h>
 
-/**
- * jack_bauer - Check Main
- * Description: function prints every minute in one day
- * Return: Nothing
- */
-void jack_bauer(void)
-{
-	int H, M;
+void jack_bauer(void) {
+    int hour, minute;
 
-	for (H = 0; H < 24; H++)
-	{
-		for (M = 0; M < 60; M++)
-		{
-			_putchar((H / 10) + '0');
-			_putchar((H % 10) + '0');
-			_putchar(':');
-			_putchar((M / 10) + '0');
-			_putchar((M % 10) + '0');
-			_putchar('\n');
-		}
-	}
+    for (hour = 0; hour < 24; hour++) {
+        for (minute = 0; minute < 60; minute++) {
+            int hour_tens = hour / 10;
+            int hour_ones = hour % 10;
+            int minute_tens = minute / 10;
+            int minute_ones = minute % 10;
+
+            printf("%d%d:%d%d\n", hour_tens, hour_ones, minute_tens, minute_ones);
+        }
+    }
 }
+
+int main(void) {
+    jack_bauer();
+    return 0;
+}
+
