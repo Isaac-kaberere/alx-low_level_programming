@@ -13,12 +13,3 @@ void print_binary(unsigned long int n)
 	_putchar((n & 1) + '0');
 
 }
-int main(void)
-{ unsigned long int number = 1234567890;
-	print_binary(number);
-	_putchar('\n');
-
-
-	return 0;
-
-	}
