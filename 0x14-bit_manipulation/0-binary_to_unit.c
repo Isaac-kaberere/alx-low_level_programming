@@ -1,38 +1,48 @@
-#include <cstring>
+#include <stddef.h>
 #include "main.h"
 
-unsigned int binary_to_uint(const char *b) {
-    // Check if the input string is NULL
-    if (b == NULL) {
-        return 0;
-    }
+/**
+ * checking for a valid string - checks if a string has only 0's and 1's
+ * b is the string to be checked
+ *
+ * Return: 1 if string is valid, 0 otherwise
+ */
+int check_valid_string(const char *b)
+{
+	if (b == NULL)
+		return (0);
+	while (*b)
+	{
+		if (*b != '1' && *b != '0')
+			return (0);
+		b++;
+	}
 
-    unsigned int result = 0;
-    int len = strlen(b);
-
-    // loop to iterate every character in the string
-    for (int i = 0; i < len; i++) {
-        // control flow to check whether the character is ‘0’ or ‘1’
-        if (b[i] == '0' || b[i] == '1') {
-            // change the new result to the left by 1 bit
-            result <<= 1;
-            // Add the new bit to the result
-            result |= (b[i] - '0');
-        } else {
-            // Invalid character found, return 0
-            return 0;
-        }
-    }
-
-    return result;
+	return (1);
 }
 
-int main() {
-    const char *binaryStr = "11010110";
-    unsigned int result = binary_to_uint(binaryStr);
-    std::cout << "Binary: " << binaryStr << std::endl;
-    std::cout << "Unsigned int: " << result << std::endl;
 
-    return 0;
+/**
+ * converts a binary to an unsigned int
+ * @b: the binary number as a string
+ *
+ * Return: the converted value
+ */
+unsigned int binary_to_uint(const char *b)
+{
+	unsigned int decimal = 0;
+	int str_len = 0, base = 1;
+
+	if (!check_valid_string(b))
+		return (0);
+	while (b[str_len] != '\0')
+		str_len++;
+	while (str_len)
+	{
+		decimal += ((b[str_len - 1] - '0') * base);
+		base *= 2;
+		str_len--;
+	}
+
+	return (decimal);
 }
-
