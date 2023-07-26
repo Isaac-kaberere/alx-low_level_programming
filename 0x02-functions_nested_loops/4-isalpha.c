@@ -1,26 +1,34 @@
 #include <stdio.h>
 
 int _isalpha(int c){
-  if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
-
-    return 1;
-  }  else {
-    return 0;
-  }
-
-}
-int main(){
     char a;
-    int result;
+    char b;
 
-    printf("Enter a character: ");
+    for (a = 'a'; a <= 'z'; a++){
+        if (c == a){
+            return 1;
+        }
+}
+    for (b = 'A'; b <= 'Z'; b++){
+        if (c == b){
+            return 1;
+        }
+    }
+}
+
+int main(){
+
+    char a;
+
+    printf("Enter two characters: ");
     scanf("%c", &a);
-    result = _isalpha(a);
+
+    int result = _isalpha(a);
 
     if (result == 1){
-        printf("%c is an alphabetic character", a);
-    } else {
-        printf("%c is not an alphabetic character", a);
-    }
+        printf("c is both lowercase and uppercase");
+    } else
+        printf("c is neither uppercace nor lowercase");
+
 }
 
